@@ -158,7 +158,7 @@ func (handler *Handler) edgeStackUpdate(w http.ResponseWriter, r *http.Request) 
 
 	} else {
 		if stack.ManifestPath == "" {
-			stack.ManifestPath = filesystem.KubeManifestFileDefaultName
+			stack.ManifestPath = filesystem.ManifestFileDefaultName
 		}
 
 		hasDockerEndpoint, err := hasDockerEndpoint(handler.DataStore.Endpoint(), relatedEndpointIds)
