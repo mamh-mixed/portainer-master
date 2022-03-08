@@ -9,7 +9,6 @@ const (
 	defaultTunnelServerAddress = "0.0.0.0"
 	defaultTunnelServerPort    = "8000"
 	defaultDataDirectory       = "/data"
-	defaultDockerExtension     = "false"
 	defaultAssetsDirectory     = "./"
 	defaultTLS                 = "false"
 	defaultTLSSkipVerify       = "false"
