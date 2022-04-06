@@ -3,4 +3,7 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
+  theme: {
+    colors: {},
+  },
 };
