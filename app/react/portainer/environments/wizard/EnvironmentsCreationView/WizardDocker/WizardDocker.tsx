@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-import { BoxSelector, buildOption } from '@/portainer/components/BoxSelector';
+import { BoxSelector } from '@/react/components/BoxSelector';
+import { buildOption } from '@/portainer/components/BoxSelector';
 import { Environment } from '@/portainer/environments/types';
 
 import { AnalyticsStateKey } from '../types';

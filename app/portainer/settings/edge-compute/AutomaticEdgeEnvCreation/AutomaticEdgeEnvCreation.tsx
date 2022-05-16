@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query';
 import { useEffect } from 'react';
 
-import { Widget, WidgetBody, WidgetTitle } from '@/portainer/components/widget';
+import { Widget, WidgetBody, WidgetTitle } from '@/react/components/Widget';
 import { EdgeScriptForm } from '@/edge/components/EdgeScriptForm';
 import { generateKey } from '@/portainer/environments/environment.service/edge';
 import { useSettings } from '@/portainer/settings/queries';
