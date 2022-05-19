@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
 
-import { useEnvironmentList } from '@/portainer/environments/queries/useEnvironment';
+import { useEnvironmentList } from '@/portainer/environments/queries/useEnvironmentList';
 import { Environment, EnvironmentType } from '@/portainer/environments/types';
 import {
   createLocalDockerEnvironment,
