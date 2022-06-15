@@ -9,4 +9,5 @@ export interface BoxSelectorOption<T> {
   disabled?: () => boolean;
   tooltip?: () => string;
   feature?: FeatureId;
+  hide?: boolean;
 }

@@ -46,6 +46,7 @@ const options: BoxSelectorOption<'agent' | 'api' | 'socket' | 'edgeAgent'>[] = [
     label: 'Edge Agent',
     description: '',
     value: 'edgeAgent',
+    hide: window.ddExtension,
   },
 ];
 
