@@ -1,8 +1,6 @@
 import { PropsWithChildren, AriaAttributes } from 'react';
 import clsx from 'clsx';
 
-import styles from './SidebarItem.module.css';
-
 interface Props {
   className?: string;
   label?: string;
@@ -16,7 +14,7 @@ export function Wrapper({
 }: PropsWithChildren<Props> & AriaAttributes) {
   return (
     <li
-      className={clsx(styles.sidebarMenuItem, className)}
+      className={clsx('flex mx-4', className)}
       title={label}
       aria-label={label}
       // eslint-disable-next-line react/jsx-props-no-spreading

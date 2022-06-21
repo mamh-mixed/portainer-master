@@ -1,4 +1,4 @@
-.sidebar-menu-head {
+/* .sidebar-menu-head {
   position: relative;
 }
 
@@ -21,4 +21,17 @@
 
 .items > * {
   text-indent: 35px;
+} */
+
+.sidebar-menu-head .sidebar-menu-indicator {
+  background: none;
+  border: 0;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  margin: 0;
+  padding: 0;
+  /* position: absolute;
+  left: 10px;
+  top: 25%; */
 }

@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { useUser } from '@/portainer/hooks/useUser';
 import { useIsTeamLeader } from '@/portainer/users/queries';
 import { usePublicSettings } from '@/portainer/settings/queries';
@@ -26,7 +28,11 @@ export function Sidebar() {
   return (
     /* in the future (when we remove r2a) this should wrap the whole app - to change root styles */
     <SidebarProvider>
-      <nav id="sidebar-wrapper" className={styles.root} aria-label="Main">
+      <nav
+        id="sidebar-wrapper"
+        className={clsx(styles.root, 'p-5')}
+        aria-label="Main"
+      >
         <Header logo={LogoURL} />
         <div className={styles.sidebarContent}>
           <ul className={styles.sidebar}>

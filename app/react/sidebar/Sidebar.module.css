@@ -1,13 +1,32 @@
+@media only screen and (min-width: 561px) {
+  :global(#page-wrapper.open) {
+    padding-left: var(--sidebar-width);
+  }
+}
+@media only screen and (max-width: 560px) {
+  :global(#page-wrapper.open) {
+    padding-left: var(--sidebar-closed-width);
+  }
+}
+
 :global(#page-wrapper.open) .root {
-  left: 150px;
+  width: var(--sidebar-width);
 }
 
 .root {
-  margin-left: -150px;
-  left: -30px;
-  width: 250px;
-  position: fixed;
+  --sidebar-width: 300px;
+  --sidebar-closed-width: 75px;
+  --primary-bg-color: rgb(var(--primary-bg-color-base));
+  --secondary-bg-color: rgb(var(--secondary-bg-color-base));
+
+  background-color: var(--primary-bg-color);
+
+  width: var(--sidebar-closed-width);
   height: 100%;
+
+  position: fixed;
+  left: 0;
+
   z-index: 999;
   transition: all 0.4s ease 0s;
 
@@ -16,7 +35,8 @@
 }
 
 .root {
-  background-color: var(--blue-5);
+  --primary-bg-color-base: 6, 89, 134;
+  --secondary-bg-color-base: 11, 74, 111;
 }
 :global(:root[theme='dark']) .root {
   background-color: var(--grey-1);
@@ -25,7 +45,8 @@
   background-color: var(--black-color);
 }
 :global(:root[data-edition='BE']) .root {
-  background-color: var(--grey-5);
+  --primary-bg-color-base: 16, 24, 40;
+  --secondary-bg-color-base: 29, 41, 57;
 }
 :global(:root[data-edition='BE'][theme='dark']) .root {
   background-color: var(--grey-1);
@@ -35,15 +56,15 @@
 }
 
 ul.sidebar {
+  text-indent: 20px;
+  position: relative;
+  overflow: hidden;
+
   top: 0;
   bottom: 0;
   padding: 0;
   margin: 0;
   list-style: none;
-  text-indent: 20px;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
 }
 
 .sidebar-content {
@@ -53,4 +74,12 @@ ul.sidebar {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+}
+
+.sidebar :global(ul) {
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
