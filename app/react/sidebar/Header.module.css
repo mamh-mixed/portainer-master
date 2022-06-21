@@ -3,13 +3,7 @@
 }
 
 .toggle-button {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  background: initial;
-  float: right;
-  padding-right: 28px;
-  line-height: 60px;
+  background-color: var(--secondary-bg-color);
 }
 
 .root {

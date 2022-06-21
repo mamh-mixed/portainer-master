@@ -1,4 +1,7 @@
-import defaultLogo from '@/assets/images/logo.png';
+import clsx from 'clsx';
+import { ChevronsLeft, ChevronsRight } from 'react-feather';
+
+import defaultLogo from '@/assets/images/logo_small_alt.png';
 
 import { Link } from '@@/Link';
 
@@ -10,28 +13,35 @@ interface Props {
 }
 
 export function Header({ logo }: Props) {
-  const { toggle } = useSidebarState();
+  const { toggle, isOpen } = useSidebarState();
 
   return (
-    <div className={styles.root}>
-      <Link to="portainer.home" data-cy="portainerSidebar-homeImage">
+    <div className="flex justify-between items-center">
+      <Link
+        to="portainer.home"
+        data-cy="portainerSidebar-homeImage"
+        className="text-2xl text-white no-underline hover:no-underline hover:text-white"
+      >
         <img
           src={logo || defaultLogo}
           className="img-responsive logo"
           alt={!logo ? 'Portainer' : ''}
         />
+        {isOpen && 'portainer.io'}
       </Link>
-      {toggle && (
-        <button
-          type="button"
-          onClick={() => toggle()}
-          className={styles.toggleButton}
-          aria-label="Toggle Sidebar"
-          title="Toggle Sidebar"
-        >
-          <i className="glyphicon glyphicon-transfer" />
-        </button>
-      )}
+
+      <button
+        type="button"
+        onClick={() => toggle()}
+        className={clsx(
+          'w-6 h-6 flex justify-center items-center text-white border-0 rounded text-sm',
+          styles.toggleButton
+        )}
+        aria-label="Toggle Sidebar"
+        title="Toggle Sidebar"
+      >
+        {isOpen ? <ChevronsLeft /> : <ChevronsRight />}
+      </button>
     </div>
   );
 }
