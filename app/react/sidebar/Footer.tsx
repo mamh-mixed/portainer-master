@@ -1,7 +1,6 @@
 import { useQuery } from 'react-query';
 import clsx from 'clsx';
 
-import smallLogo from '@/assets/images/logo_small.png';
 import { getStatus } from '@/portainer/services/api/status.service';
 
 import { UpdateNotification } from './UpdateNotifications';
@@ -19,21 +18,11 @@ export function Footer() {
   return (
     <div className={styles.root}>
       {process.env.PORTAINER_EDITION === 'CE' && <UpdateNotification />}
-      <div>
-        <img
-          src={smallLogo}
-          className={clsx('img-responsive', styles.logo)}
-          alt="Portainer"
-        />
-        <span
-          className={styles.version}
-          data-cy="portainerSidebar-versionNumber"
-        >
-          {Version}
-        </span>
-        {process.env.PORTAINER_EDITION !== 'CE' && (
-          <div className={styles.editionVersion}>{Edition}</div>
-        )}
+      <div className={clsx('text-xs space-x-1', styles.copyright)}>
+        <span>&copy;</span>
+        <span>Portainer {Edition}</span>
+
+        <span data-cy="portainerSidebar-versionNumber">{Version}</span>
       </div>
     </div>
   );

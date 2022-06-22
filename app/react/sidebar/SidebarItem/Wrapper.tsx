@@ -14,7 +14,7 @@ export function Wrapper({
 }: PropsWithChildren<Props> & AriaAttributes) {
   return (
     <li
-      className={clsx('flex mx-4', className)}
+      className={clsx('flex', className)}
       title={label}
       aria-label={label}
       // eslint-disable-next-line react/jsx-props-no-spreading

@@ -1,5 +1,6 @@
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 
 import {
   PlatformType,
@@ -8,6 +9,8 @@ import {
 } from '@/portainer/environments/types';
 import { getPlatformType } from '@/portainer/environments/utils';
 import { useEnvironment } from '@/portainer/environments/queries/useEnvironment';
+
+import { getPlatformIcon } from '../portainer/environments/utils/get-platform-icon';
 
 import { AzureSidebar } from './AzureSidebar';
 import { DockerSidebar } from './DockerSidebar';
@@ -26,18 +29,23 @@ export function EnvironmentSidebar() {
   const platform = getPlatformType(environment.Type);
   const sidebar = getSidebar(environment);
 
+  const EnvironmentIcon = getPlatformIcon(environment.Type);
+
   return (
-    <SidebarSection
-      title={
-        <div className={styles.title}>
-          <i className="fa fa-plug space-right" />
-          {environment.Name}
-        </div>
-      }
-      label={PlatformType[platform]}
-    >
-      {sidebar}
-    </SidebarSection>
+    <div className={clsx(styles.root, 'rounded border border-dashed py-2')}>
+      <SidebarSection
+        title={
+          <div className="flex items-center gap-2">
+            <span>Environment</span>
+            {EnvironmentIcon && <EnvironmentIcon className="text-2xl" />}
+            <span className="text-white">{environment.Name}</span>
+          </div>
+        }
+        label={PlatformType[platform]}
+      >
+        {sidebar}
+      </SidebarSection>
+    </div>
   );
 
   function getSidebar(environment: Environment) {

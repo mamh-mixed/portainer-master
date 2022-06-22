@@ -25,7 +25,7 @@ export function Header({ logo }: Props) {
         <img
           src={logo || defaultLogo}
           className="img-responsive logo"
-          alt={!logo ? 'Portainer' : ''}
+          alt={!logo ? 'portainer.io' : 'Logo'}
         />
         {isOpen && 'portainer.io'}
       </Link>

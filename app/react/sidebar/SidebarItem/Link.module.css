@@ -1,4 +1,8 @@
 a.active {
+  background: var(--ui-grey-7);
+}
+
+/* a.active {
   color: #fff;
   border-left-color: var(--border-sidebar-color);
 }
@@ -25,4 +29,4 @@ a.active {
 
 :global(:root[data-edition='BE'][theme='highcontrast']) a.active {
   background-color: var(--black-color);
-}
+} */

@@ -1,6 +1,8 @@
+import clsx from 'clsx';
 import { PropsWithChildren, ReactNode } from 'react';
 
 import styles from './SidebarSection.module.css';
+import { useSidebarState } from './useSidebarState';
 
 interface Props {
   title: ReactNode;
@@ -13,14 +15,17 @@ export function SidebarSection({
   children,
 }: PropsWithChildren<Props>) {
   const labelText = typeof title === 'string' ? title : label;
+  const { isOpen } = useSidebarState();
 
   return (
-    <>
-      <li className={styles.sidebarTitle}>{title}</li>
+    <div>
+      {isOpen && (
+        <li className={clsx(styles.sidebarTitle, 'ml-3 text-sm')}>{title}</li>
+      )}
 
-      <nav aria-label={labelText}>
+      <nav aria-label={labelText} className="mt-4">
         <ul>{children}</ul>
       </nav>
-    </>
+    </div>
   );
 }

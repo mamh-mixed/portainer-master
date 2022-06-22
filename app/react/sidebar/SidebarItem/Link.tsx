@@ -18,9 +18,9 @@ export function Link({ children, to, options, params, title }: Props) {
       <NavLink
         to={to}
         params={params}
-        className={styles.link}
         title={label}
         options={options}
+        className="text-white no-underline hover:no-underline hover:text-white focus:no-underline focus:text-white w-full flex-1 rounded-md px-3"
       >
         {children}
       </NavLink>

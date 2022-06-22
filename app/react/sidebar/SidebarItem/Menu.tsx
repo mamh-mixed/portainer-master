@@ -8,6 +8,7 @@ import {
   useMemo,
   useReducer,
 } from 'react';
+import { ChevronDown, ChevronLeft } from 'react-feather';
 
 import { useSidebarState } from '../useSidebarState';
 
@@ -36,28 +37,29 @@ export function Menu({
 
   const { isOpen, toggleOpen } = useIsOpen(isSidebarOpen, paths);
 
+  const CollapseButtonIcon = isOpen ? ChevronDown : ChevronLeft;
+
   return (
-    <>
-      <div className={styles.sidebarMenuHead}>
-        {Children.count(children) > 0 && (
+    <div className="flex-1">
+      <div className="flex w-full justify-between items-center relative ">
+        {head}
+        {isSidebarOpen && Children.count(children) > 0 && (
           <button
-            className={clsx('small', styles.sidebarMenuIndicator)}
+            className={clsx(
+              styles.collapseButton,
+              'bg-transparent border-0 w-6 h-6 flex items-center justify-center absolute right-2'
+            )}
             onClick={handleClickArrow}
             type="button"
+            aria-label="Collapse button"
           >
-            <i
-              className={clsx(
-                'fas',
-                isOpen ? 'fa-chevron-down' : 'fa-chevron-right'
-              )}
-            />
+            <CollapseButtonIcon className="w-4 h-4" />
           </button>
         )}
-        {head}
       </div>
 
-      {isOpen && <ul className={styles.items}>{children}</ul>}
-    </>
+      {isOpen && <ul className="!pl-8">{children}</ul>}
+    </div>
   );
 
   function handleClickArrow(e: React.MouseEvent<HTMLButtonElement>) {

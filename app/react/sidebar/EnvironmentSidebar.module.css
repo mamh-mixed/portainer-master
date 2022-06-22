@@ -3,3 +3,8 @@
   text-align: center;
   text-indent: 0;
 }
+
+.root {
+  background: var(--secondary-bg-color);
+  border-color: var(--ui-grey-7);
+}

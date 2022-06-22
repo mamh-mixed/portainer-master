@@ -73,3 +73,8 @@
 :global(:root[data-edition='BE'][theme='highcontrast']) .sidebar-menu-item a:hover {
   background-color: var(--black-color);
 } */
+
+.sidebar-item-icon > svg {
+  width: 15px;
+  height: 15px;
+}

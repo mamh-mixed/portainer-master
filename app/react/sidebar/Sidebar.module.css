@@ -9,15 +9,19 @@
   }
 }
 
+:global(#page-wrapper) {
+  --sidebar-width: 300px;
+  --sidebar-closed-width: 75px;
+}
+
 :global(#page-wrapper.open) .root {
   width: var(--sidebar-width);
 }
 
 .root {
-  --sidebar-width: 300px;
-  --sidebar-closed-width: 75px;
   --primary-bg-color: rgb(var(--primary-bg-color-base));
   --secondary-bg-color: rgb(var(--secondary-bg-color-base));
+  --header-color: #98a2b3;
 
   background-color: var(--primary-bg-color);
 
@@ -55,11 +59,8 @@
   background-color: var(--black-color);
 }
 
+.sidebar :global(ul),
 ul.sidebar {
-  text-indent: 20px;
-  position: relative;
-  overflow: hidden;
-
   top: 0;
   bottom: 0;
   padding: 0;
@@ -74,12 +75,4 @@ ul.sidebar {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
-}
-
-.sidebar :global(ul) {
-  top: 0;
-  bottom: 0;
-  padding: 0;
-  margin: 0;
-  list-style: none;
 }

@@ -1,7 +1,11 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
 
 import { Icon } from '@@/Icon';
 
+import { useSidebarState } from '../useSidebarState';
+
+import styles from './SidebarItem.module.css';
 import { Wrapper } from './Wrapper';
 import { Link } from './Link';
 import { Menu } from './Menu';
@@ -25,10 +29,25 @@ export function SidebarItem({
   label,
   openOnPaths,
 }: Props) {
+  const { isOpen } = useSidebarState();
+
   const head = (
     <Link to={to} params={params}>
-      {!!icon && <Icon icon={icon} feather={featherIcon} />}
-      {label}
+      <div
+        className={clsx('w-full flex items-center h-8 space-x-4 text-sm', {
+          'justify-start': isOpen,
+          'justify-center': !isOpen,
+        })}
+      >
+        {!!icon && (
+          <Icon
+            icon={icon}
+            feather={featherIcon}
+            className={clsx('flex', styles.sidebarItemIcon)}
+          />
+        )}
+        {isOpen && <span>{label}</span>}
+      </div>
     </Link>
   );
 
