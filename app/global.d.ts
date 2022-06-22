@@ -5,6 +5,13 @@ declare module '*.png' {
   export default '' as string;
 }
 
+type SvgrComponent = React.StatelessComponent<React.SVGAttributes<SVGElement>>;
+
+declare module '*.svg?c' {
+  const value: SvgrComponent;
+  export default value;
+}
+
 declare module '*.css';
 
 declare module '@open-amt-cloud-toolkit/ui-toolkit-react/reactjs/src/kvm.bundle';
