@@ -1,5 +1,10 @@
 import { PropsWithChildren } from 'react';
-import { Menu, MenuButton, MenuList, MenuLink } from '@reach/menu-button';
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuLink as ReachMenuLink,
+} from '@reach/menu-button';
 import clsx from 'clsx';
 import { User, ChevronDown } from 'react-feather';
 import { useSref } from '@uirouter/react';
@@ -17,9 +22,6 @@ export function HeaderTitle({ title, children }: PropsWithChildren<Props>) {
   useHeaderContext();
   const { user } = useUser();
 
-  const accountAnchorProps = useSref('portainer.account');
-  const logoutAnchorProps = useSref('portainer.logout');
-
   return (
     <div className="page white-space-normal">
       {title}
@@ -30,23 +32,34 @@ export function HeaderTitle({ title, children }: PropsWithChildren<Props>) {
           {user && <span>{user.Username}</span>}
           <ChevronDown className="feather" />
         </MenuButton>
+
         <MenuList className={styles.menuList}>
-          <MenuLink
-            href={accountAnchorProps.href}
-            onClick={accountAnchorProps.onClick}
-            className={styles.menuLink}
-          >
-            My account
-          </MenuLink>
-          <MenuLink
-            href={logoutAnchorProps.href}
-            onClick={logoutAnchorProps.onClick}
-            className={styles.menuLink}
-          >
-            Log out
-          </MenuLink>
+          {!window.ddExtension && (
+            <MenuLink to="portainer.account" label="My account" />
+          )}
+
+          <MenuLink to="portainer.logout" label="Log out" />
         </MenuList>
       </Menu>
     </div>
+  );
+}
+
+interface MenuLinkProps {
+  to: string;
+  label: string;
+}
+
+function MenuLink({ to, label }: MenuLinkProps) {
+  const anchorProps = useSref(to);
+
+  return (
+    <ReachMenuLink
+      href={anchorProps.href}
+      onClick={anchorProps.onClick}
+      className={styles.menuLink}
+    >
+      {label}
+    </ReachMenuLink>
   );
 }
