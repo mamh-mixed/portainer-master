@@ -1,6 +1,6 @@
-import { useCurrentStateAndParams } from '@uirouter/react';
+import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { useEffect, useState } from 'react';
-import clsx from 'clsx';
+import { X } from 'react-feather';
 
 import {
   PlatformType,
@@ -16,10 +16,10 @@ import { AzureSidebar } from './AzureSidebar';
 import { DockerSidebar } from './DockerSidebar';
 import { KubernetesSidebar } from './KubernetesSidebar';
 import { SidebarSection } from './SidebarSection';
-import styles from './EnvironmentSidebar.module.css';
 
 export function EnvironmentSidebar() {
-  const currentEnvironmentQuery = useCurrentEnvironment();
+  const { query: currentEnvironmentQuery, clearEnvironment } =
+    useCurrentEnvironment();
   const environment = currentEnvironmentQuery.data;
 
   if (!environment) {
@@ -32,13 +32,21 @@ export function EnvironmentSidebar() {
   const EnvironmentIcon = getPlatformIcon(environment.Type);
 
   return (
-    <div className={clsx(styles.root, 'rounded border border-dashed py-2')}>
+    <div className="rounded border border-dotted py-2 be:bg-blue-7 bg-blue-8 be:border-grey-7 border-blue-2">
       <SidebarSection
         title={
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ">
             <span>Environment</span>
             {EnvironmentIcon && <EnvironmentIcon className="text-2xl" />}
             <span className="text-white">{environment.Name}</span>
+
+            <button
+              type="button"
+              onClick={clearEnvironment}
+              className="flex items-center justify-center be:bg-grey-3 bg-blue-5 rounded border-0 text-sm h-5 w-5 p-1 ml-auto mr-2 text-grey-8"
+            >
+              <X />
+            </button>
           </div>
         }
         label={PlatformType[platform]}
@@ -69,7 +77,7 @@ export function EnvironmentSidebar() {
 
 function useCurrentEnvironment() {
   const { params } = useCurrentStateAndParams();
-
+  const router = useRouter();
   const [environmentId, setEnvironmentId] = useState<EnvironmentId>();
 
   useEffect(() => {
@@ -79,5 +87,13 @@ function useCurrentEnvironment() {
     }
   }, [params.endpointId]);
 
-  return useEnvironment(environmentId);
+  return { query: useEnvironment(environmentId), clearEnvironment };
+
+  function clearEnvironment() {
+    if (params.endpointId) {
+      router.stateService.go('portainer.home');
+    }
+
+    setEnvironmentId(undefined);
+  }
 }

@@ -4,8 +4,6 @@ import _ from 'lodash';
 
 import { Link as NavLink } from '@@/Link';
 
-import styles from './Link.module.css';
-
 interface Props extends ComponentProps<typeof NavLink> {
   children: ReactNode;
 }
@@ -14,7 +12,7 @@ export function Link({ children, to, options, params, title }: Props) {
   const label = title || getLabel(children);
 
   return (
-    <UISrefActive class={styles.active}>
+    <UISrefActive class="bg-blue-1 be:bg-grey-7">
       <NavLink
         to={to}
         params={params}

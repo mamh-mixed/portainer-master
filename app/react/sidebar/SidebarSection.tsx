@@ -20,7 +20,9 @@ export function SidebarSection({
   return (
     <div>
       {isOpen && (
-        <li className={clsx(styles.sidebarTitle, 'ml-3 text-sm')}>{title}</li>
+        <li className={clsx(styles.sidebarTitle, 'ml-3 text-sm text-grey-8')}>
+          {title}
+        </li>
       )}
 
       <nav aria-label={labelText} className="mt-4">

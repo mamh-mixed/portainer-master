@@ -16,9 +16,9 @@ export function Footer() {
   const { Edition, Version } = statusQuery.data;
 
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root, 'text-center')}>
       {process.env.PORTAINER_EDITION === 'CE' && <UpdateNotification />}
-      <div className={clsx('text-xs space-x-1', styles.copyright)}>
+      <div className="text-xs space-x-1 text-grey-8">
         <span>&copy;</span>
         <span>Portainer {Edition}</span>
 

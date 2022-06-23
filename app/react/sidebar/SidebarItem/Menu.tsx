@@ -1,5 +1,4 @@
 import { useCurrentStateAndParams } from '@uirouter/react';
-import clsx from 'clsx';
 import {
   Children,
   PropsWithChildren,
@@ -11,8 +10,6 @@ import {
 import { ChevronDown, ChevronLeft } from 'react-feather';
 
 import { useSidebarState } from '../useSidebarState';
-
-import styles from './Menu.module.css';
 
 interface Props {
   head: ReactNode;
@@ -45,10 +42,7 @@ export function Menu({
         {head}
         {isSidebarOpen && Children.count(children) > 0 && (
           <button
-            className={clsx(
-              styles.collapseButton,
-              'bg-transparent border-0 w-6 h-6 flex items-center justify-center absolute right-2'
-            )}
+            className="bg-transparent border-0 w-6 h-6 flex items-center justify-center absolute right-2 text-grey-1"
             onClick={handleClickArrow}
             type="button"
             aria-label="Collapse button"

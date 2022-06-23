@@ -31,13 +31,16 @@ export function Sidebar() {
     <SidebarProvider>
       <nav
         id="sidebar-wrapper"
-        className={clsx(styles.root, 'p-5 flex flex-col')}
+        className={clsx(
+          styles.root,
+          'p-5 flex flex-col be:bg-blue-6 bg-blue-5 '
+        )}
         aria-label="Main"
       >
         <Header logo={LogoURL} />
 
-        <div className="mt-6">
-          <ul className={clsx(styles.sidebar, 'space-y-9 flex-1')}>
+        <div className="mt-6 overflow-y-auto flex-1">
+          <ul className={clsx(styles.sidebar, 'space-y-9')}>
             <SidebarItem
               to="portainer.home"
               icon={Home}
@@ -53,7 +56,7 @@ export function Sidebar() {
           </ul>
         </div>
 
-        <div className="mt-auto">
+        <div className="mt-auto pt-8">
           <Footer />
         </div>
       </nav>

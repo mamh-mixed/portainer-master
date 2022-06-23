@@ -274,7 +274,7 @@ input:checked + .slider:before {
   background-color: var(--ui-green-1);
 }
 .toast-warning .toast-progress {
-  background-color: var(--ui-yellow);
+  background-color: var(--ui-yellow-1);
 }
 .toast-error .toast-progress {
   background-color: var(--ui-red-1);
