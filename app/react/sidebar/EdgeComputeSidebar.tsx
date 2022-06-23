@@ -6,23 +6,27 @@ export function EdgeComputeSidebar() {
     <SidebarSection title="Edge compute">
       <SidebarItem
         to="edge.devices"
-        iconClass="fas fa-laptop-code fa-fw"
+        icon="fas fa-laptop-code fa-fw"
         label="Edge Devices"
+        featherIcon={false}
       />
       <SidebarItem
         to="edge.groups"
-        iconClass="fa-object-group fa-fw"
+        icon="fa-object-group fa-fw"
         label="Edge Groups"
+        featherIcon={false}
       />
       <SidebarItem
         to="edge.stacks"
-        iconClass="fa-layer-group fa-fw"
+        icon="fa-layer-group fa-fw"
         label="Edge Stacks"
+        featherIcon={false}
       />
       <SidebarItem
         to="edge.jobs"
-        iconClass="fa-clock fa-fw"
+        icon="fa-clock fa-fw"
         label="Edge Jobs"
+        featherIcon={false}
       />
     </SidebarSection>
   );

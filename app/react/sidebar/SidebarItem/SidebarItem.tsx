@@ -1,22 +1,25 @@
 import { ReactNode } from 'react';
 
+import { Icon } from '@@/Icon';
+
 import { Wrapper } from './Wrapper';
 import { Link } from './Link';
 import { Menu } from './Menu';
-import { Icon } from './Icon';
 
-type Props = {
-  iconClass?: string;
+interface Props {
+  icon?: ReactNode;
+  featherIcon?: boolean;
   to: string;
   params?: object;
   label: string;
   children?: ReactNode;
   openOnPaths?: string[];
-};
+}
 
 export function SidebarItem({
   children,
-  iconClass,
+  icon,
+  featherIcon = true,
   to,
   params,
   label,
@@ -24,8 +27,8 @@ export function SidebarItem({
 }: Props) {
   const head = (
     <Link to={to} params={params}>
+      {!!icon && <Icon icon={icon} feather={featherIcon} />}
       {label}
-      {iconClass && <Icon iconClass={iconClass} />}
     </Link>
   );
 

@@ -17,21 +17,24 @@ export function KubernetesSidebar({ environmentId }: Props) {
       <SidebarItem
         to="kubernetes.dashboard"
         params={{ endpointId: environmentId }}
-        iconClass="fa-tachometer-alt fa-fw"
+        icon="fa-tachometer-alt fa-fw"
+        featherIcon={false}
         label="Dashboard"
       />
 
       <SidebarItem
         to="kubernetes.templates.custom"
         params={{ endpointId: environmentId }}
-        iconClass="fa-rocket fa-fw"
+        icon="fa-rocket fa-fw"
+        featherIcon={false}
         label="Custom Templates"
       />
 
       <SidebarItem
         to="kubernetes.resourcePools"
         params={{ endpointId: environmentId }}
-        iconClass="fa-layer-group fa-fw"
+        icon="fa-layer-group fa-fw"
+        featherIcon={false}
         label="Namespaces"
       />
 
@@ -39,7 +42,8 @@ export function KubernetesSidebar({ environmentId }: Props) {
         <SidebarItem
           to="kubernetes.templates.helm"
           params={{ endpointId: environmentId }}
-          iconClass="fa-dharmachakra fa-fw"
+          icon="fa-dharmachakra fa-fw"
+          featherIcon={false}
           label="Helm"
         />
       </Authorized>
@@ -47,28 +51,32 @@ export function KubernetesSidebar({ environmentId }: Props) {
       <SidebarItem
         to="kubernetes.applications"
         params={{ endpointId: environmentId }}
-        iconClass="fa-laptop-code fa-fw"
+        icon="fa-laptop-code fa-fw"
+        featherIcon={false}
         label="Applications"
       />
 
       <SidebarItem
         to="kubernetes.configurations"
         params={{ endpointId: environmentId }}
-        iconClass="fa-file-code fa-fw"
+        icon="fa-file-code fa-fw"
+        featherIcon={false}
         label="ConfigMaps & Secrets"
       />
 
       <SidebarItem
         to="kubernetes.volumes"
         params={{ endpointId: environmentId }}
-        iconClass="fa-database fa-fw"
+        icon="fa-database fa-fw"
+        featherIcon={false}
         label="Volumes"
       />
 
       <SidebarItem
-        iconClass="fa-server fa-fw"
+        icon="fa-server fa-fw"
         label="Cluster"
         to="kubernetes.cluster"
+        featherIcon={false}
         params={{ endpointId: environmentId }}
       >
         <Authorized authorizations="K8sClusterSetupRW" adminOnlyCE>

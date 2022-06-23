@@ -1,4 +1,15 @@
 import {
+  Activity,
+  BarChart,
+  Clock,
+  HardDrive,
+  Image,
+  Layout,
+  List,
+  Server,
+} from 'react-feather';
+
+import {
   type Environment,
   type EnvironmentId,
   EnvironmentStatus,
@@ -55,14 +66,14 @@ export function DockerSidebar({ environmentId, environment }: Props) {
       <SidebarItem
         to="docker.dashboard"
         params={{ endpointId: environmentId }}
-        iconClass="fa-tachometer-alt fa-fw"
+        icon={BarChart}
         label="Dashboard"
       />
 
       {!offlineMode && (
         <SidebarItem
           label="App Templates"
-          iconClass="fa-rocket fa-fw"
+          icon={Layout}
           to="docker.templates"
           params={{ endpointId: environmentId }}
         >
@@ -78,7 +89,7 @@ export function DockerSidebar({ environmentId, environment }: Props) {
         <SidebarItem
           to="docker.stacks"
           params={{ endpointId: environmentId }}
-          iconClass="fa-th-list fa-fw"
+          icon={Server}
           label="Stacks"
         />
       )}
@@ -87,7 +98,8 @@ export function DockerSidebar({ environmentId, environment }: Props) {
         <SidebarItem
           to="docker.services"
           params={{ endpointId: environmentId }}
-          iconClass="fa-list-alt fa-fw"
+          icon="fa-list-alt fa-fw"
+          featherIcon={false}
           label="Services"
         />
       )}
@@ -95,28 +107,28 @@ export function DockerSidebar({ environmentId, environment }: Props) {
       <SidebarItem
         to="docker.containers"
         params={{ endpointId: environmentId }}
-        iconClass="fa-cubes fa-fw"
+        icon={List}
         label="Containers"
       />
 
       <SidebarItem
         to="docker.images"
         params={{ endpointId: environmentId }}
-        iconClass="fa-clone fa-fw"
+        icon={Image}
         label="Images"
       />
 
       <SidebarItem
         to="docker.networks"
         params={{ endpointId: environmentId }}
-        iconClass="fa-sitemap fa-fw"
+        icon={Activity}
         label="Networks"
       />
 
       <SidebarItem
         to="docker.volumes"
         params={{ endpointId: environmentId }}
-        iconClass="fa-hdd fa-fw"
+        icon={HardDrive}
         label="Volumes"
       />
 
@@ -124,7 +136,8 @@ export function DockerSidebar({ environmentId, environment }: Props) {
         <SidebarItem
           to="docker.configs"
           params={{ endpointId: environmentId }}
-          iconClass="fa-file-code fa-fw"
+          icon="fa-file-code fa-fw"
+          featherIcon={false}
           label="Configs"
         />
       )}
@@ -133,7 +146,8 @@ export function DockerSidebar({ environmentId, environment }: Props) {
         <SidebarItem
           to="docker.secrets"
           params={{ endpointId: environmentId }}
-          iconClass="fa-user-secret fa-fw"
+          icon="fa-user-secret fa-fw"
+          featherIcon={false}
           label="Secrets"
         />
       )}
@@ -142,14 +156,16 @@ export function DockerSidebar({ environmentId, environment }: Props) {
         <SidebarItem
           to="docker.events"
           params={{ endpointId: environmentId }}
-          iconClass="fa-history fa-fw"
+          icon={Clock}
+          featherIcon={false}
           label="Events"
         />
       )}
 
       <SidebarItem
         label={setupSubMenuProps.label}
-        iconClass={setupSubMenuProps.iconClass}
+        icon={setupSubMenuProps.iconClass}
+        featherIcon={false}
         to={setupSubMenuProps.to}
         params={{ endpointId: environmentId }}
       >

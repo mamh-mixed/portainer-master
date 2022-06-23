@@ -12,13 +12,15 @@ export function AzureSidebar({ environmentId }: Props) {
       <SidebarItem
         to="azure.dashboard"
         params={{ endpointId: environmentId }}
-        iconClass="fa-tachometer-alt fa-fw"
+        icon="fa-tachometer-alt fa-fw"
+        featherIcon={false}
         label="Dashboard"
       />
       <SidebarItem
         to="azure.containerinstances"
         params={{ endpointId: environmentId }}
-        iconClass="fa-cubes fa-fw"
+        icon="fa-cubes fa-fw"
+        featherIcon={false}
         label="Container instances"
       />
     </>

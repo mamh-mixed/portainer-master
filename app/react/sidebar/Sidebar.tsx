@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Home } from 'react-feather';
 
 import { useUser } from '@/portainer/hooks/useUser';
 import { useIsTeamLeader } from '@/portainer/users/queries';
@@ -38,7 +39,8 @@ export function Sidebar() {
           <ul className={styles.sidebar}>
             <SidebarItem
               to="portainer.home"
-              iconClass="fa-home fa-fw"
+              icon={Home}
+              featherIcon
               label="Home"
             />
 
