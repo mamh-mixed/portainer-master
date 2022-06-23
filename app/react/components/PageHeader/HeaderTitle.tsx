@@ -2,10 +2,9 @@ import { PropsWithChildren } from 'react';
 import { Menu, MenuButton, MenuList, MenuLink } from '@reach/menu-button';
 import clsx from 'clsx';
 import { User, ChevronDown } from 'react-feather';
+import { useSref } from '@uirouter/react';
 
 import { useUser } from '@/portainer/hooks/useUser';
-
-import { Link } from '@@/Link';
 
 import { useHeaderContext } from './HeaderContainer';
 import styles from './HeaderTitle.module.css';
@@ -17,6 +16,9 @@ interface Props {
 export function HeaderTitle({ title, children }: PropsWithChildren<Props>) {
   useHeaderContext();
   const { user } = useUser();
+
+  const accountAnchorProps = useSref('portainer.account');
+  const logoutAnchorProps = useSref('portainer.logout');
 
   return (
     <div className="page white-space-normal">
@@ -30,13 +32,17 @@ export function HeaderTitle({ title, children }: PropsWithChildren<Props>) {
         </MenuButton>
         <MenuList className={styles.menuList}>
           <MenuLink
+            href={accountAnchorProps.href}
+            onClick={accountAnchorProps.onClick}
             className={styles.menuLink}
-            as={Link}
-            to="portainer.account"
           >
             My account
           </MenuLink>
-          <MenuLink className={styles.menuLink} as={Link} to="portainer.logout">
+          <MenuLink
+            href={logoutAnchorProps.href}
+            onClick={logoutAnchorProps.onClick}
+            className={styles.menuLink}
+          >
             Log out
           </MenuLink>
         </MenuList>
