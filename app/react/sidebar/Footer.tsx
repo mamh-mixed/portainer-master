@@ -23,6 +23,17 @@ export function Footer() {
         <span>Portainer {Edition}</span>
 
         <span data-cy="portainerSidebar-versionNumber">{Version}</span>
+
+        {process.env.PORTAINER_EDITION === 'CE' && (
+          <a
+            href="https://www.portainer.io/install-BE-now"
+            className="text-[#36BFFA] font-medium"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Upgrade
+          </a>
+        )}
       </div>
     </div>
   );
