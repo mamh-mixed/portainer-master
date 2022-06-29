@@ -13,6 +13,7 @@ import { Tooltip } from '@@/Tip/Tooltip';
 import { TableColumnHeaderAngular } from '@@/datatables/TableHeaderCell';
 import { DashboardItem } from '@@/DashboardItem';
 import { SearchBar } from '@@/datatables/SearchBar';
+import { TeamsSelector } from '@@/TeamsSelector';
 
 import { fileUploadField } from './file-upload-field';
 import { switchField } from './switch-field';
@@ -58,4 +59,16 @@ export const componentsModule = angular
   .component(
     'datatableSearchbar',
     r2a(SearchBar, ['data-cy', 'onChange', 'value', 'placeholder'])
+  )
+  .component(
+    'teamsSelector',
+    r2a(TeamsSelector, [
+      'onChange',
+      'value',
+      'dataCy',
+      'inputId',
+      'name',
+      'placeholder',
+      'teams',
+    ])
   ).name;
