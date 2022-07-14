@@ -10,7 +10,14 @@
             <button type="button" class="btn btn-sm btn-primary" ui-sref="docker.templates.new" ng-if="$ctrl.showAddAction">
               <i class="fa fa-plus space-right" aria-hidden="true"></i>Add template
             </button>
-            <por-select options="$ctrl.state.categories" value="$ctrl.state.selectedCategory" placeholder="'Select a category'" on-change="($ctrl.onCategoryChange)"> </por-select>
+            <por-select
+              options="$ctrl.state.categories"
+              value="$ctrl.state.selectedCategory"
+              placeholder="'Select a category'"
+              on-change="($ctrl.onCategoryChange)"
+              is-clearable="true"
+            >
+            </por-select>
           </div>
 
           <div class="small text-muted mt-3">
