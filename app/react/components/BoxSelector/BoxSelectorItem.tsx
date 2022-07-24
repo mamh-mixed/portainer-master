@@ -51,7 +51,6 @@ export function BoxSelectorItem<T extends number | string>({
       />
 
       <label htmlFor={option.id} data-cy={`${radioName}_${option.value}`}>
-        {limitedToBE && <i className="fas fa-briefcase limited-icon" />}
         <div className="boxselector_img_container">
           {!!option.icon && (
             <Icon
