@@ -2,7 +2,6 @@
 .box-selector-item {
   --selected-item-color: var(--ui-blue-6);
   flex: 1;
-  padding: 5px;
 }
 
 .boxselector_wrapper .boxselector_header {
