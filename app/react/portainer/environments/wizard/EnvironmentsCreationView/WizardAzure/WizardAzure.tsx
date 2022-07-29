@@ -66,7 +66,7 @@ export function WizardAzure({ onCreate }: Props) {
         validationSchema={validationSchema}
       >
         {({ errors, dirty, isValid }) => (
-          <Form>
+          <Form className="!mt-2">
             <NameField />
 
             <FormControl
