@@ -17,7 +17,7 @@
   </div>
 
   <div class="col-sm-12 form-section-title"> Group type </div>
-  <div class="form-group col-sm-12">
+  <div class="!my-[5px] col-sm-12">
     <div class="boxselector_wrapper">
       <div class="boxselector">
         <input type="radio" id="static-group" ng-model="$ctrl.model.Dynamic" ng-value="false" ng-checked="!$ctrl.model.Dynamic" />
@@ -69,7 +69,7 @@
   <!-- DynamicGroup -->
   <div ng-if="$ctrl.model.Dynamic">
     <div class="col-sm-12 form-section-title"> Tags </div>
-    <div ng-if="$ctrl.tags.length" class="form-group col-sm-12">
+    <div ng-if="$ctrl.tags.length" class="!my-[5px] col-sm-12">
       <div class="boxselector_wrapper">
         <div class="boxselector">
           <input type="radio" id="or-selector" ng-model="$ctrl.model.PartialMatch" ng-value="true" ng-checked="$ctrl.model.PartialMatch" />
