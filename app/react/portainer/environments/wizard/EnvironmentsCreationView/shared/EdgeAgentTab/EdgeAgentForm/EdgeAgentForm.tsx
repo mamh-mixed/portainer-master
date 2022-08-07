@@ -4,6 +4,7 @@ import { Environment } from '@/portainer/environments/types';
 import { useCreateEdgeAgentEnvironmentMutation } from '@/portainer/environments/queries/useCreateEnvironmentMutation';
 import { baseHref } from '@/portainer/helpers/pathHelper';
 import { EdgeCheckinIntervalField } from '@/edge/components/EdgeCheckInIntervalField';
+import { useCreateEdgeDeviceParam } from '@/react/portainer/environments/wizard/hooks/useCreateEdgeDeviceParam';
 
 import { FormSection } from '@@/form-components/FormSection';
 import { LoadingButton } from '@@/buttons/LoadingButton';
@@ -25,6 +26,7 @@ const initialValues = buildInitialValues();
 
 export function EdgeAgentForm({ onCreate, readonly, showGpus = false }: Props) {
   const createMutation = useCreateEdgeAgentEnvironmentMutation();
+  const createEdgeDevice = useCreateEdgeDeviceParam();
 
   return (
     <Formik<FormValues>
@@ -68,11 +70,14 @@ export function EdgeAgentForm({ onCreate, readonly, showGpus = false }: Props) {
   );
 
   function handleSubmit(values: typeof initialValues) {
-    createMutation.mutate(values, {
-      onSuccess(environment) {
-        onCreate(environment);
-      },
-    });
+    createMutation.mutate(
+      { ...values, isEdgeDevice: createEdgeDevice },
+      {
+        onSuccess(environment) {
+          onCreate(environment);
+        },
+      }
+    );
   }
 }
 
