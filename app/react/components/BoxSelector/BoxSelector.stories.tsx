@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/react';
 import { useState } from 'react';
-import { Anchor, Briefcase, Gift } from 'react-feather';
+import { Anchor, Briefcase } from 'react-feather';
 
+import Docker from '@/assets/ico/vendor/docker.svg?c';
 import { init as initFeatureService } from '@/portainer/feature-flags/feature-flags.service';
 import { Edition, FeatureId } from '@/portainer/feature-flags/enums';
 
@@ -24,14 +25,16 @@ function Example() {
   const options: BoxSelectorOption<number>[] = [
     {
       description: 'description 1',
-      icon: <BadgeIcon icon={Anchor} />,
+      icon: Anchor,
+      iconType: 'badge',
       id: '1',
       value: 3,
       label: 'option 1',
     },
     {
       description: 'description 2',
-      icon: <BadgeIcon icon={Briefcase} />,
+      icon: Briefcase,
+      iconType: 'badge',
       id: '2',
       value: 4,
       label: 'option 2',
@@ -56,14 +59,16 @@ function LimitedFeature() {
   const options: BoxSelectorOption<number>[] = [
     {
       description: 'description 1',
-      icon: <BadgeIcon icon={Anchor} />,
+      icon: Anchor,
+      iconType: 'badge',
       id: '1',
       value: 3,
       label: 'option 1',
     },
     {
       description: 'description 2',
-      icon: <BadgeIcon icon={Briefcase} />,
+      icon: Briefcase,
+      iconType: 'badge',
       id: '2',
       value: 4,
       label: 'option 2',
@@ -88,21 +93,23 @@ export function MultiSelect() {
   const options: BoxSelectorOption<number>[] = [
     {
       description: 'description 1',
-      icon: <BadgeIcon icon={Anchor} />,
+      icon: Anchor,
+      iconType: 'badge',
       id: '1',
       value: 1,
       label: 'option 1',
     },
     {
       description: 'description 2',
-      icon: <BadgeIcon icon={Briefcase} />,
+      icon: Briefcase,
+      iconType: 'badge',
       id: '2',
       value: 2,
       label: 'option 2',
     },
     {
       description: 'description 3',
-      icon: <BadgeIcon icon={Gift} />,
+      icon: Docker,
       id: '3',
       value: 3,
       label: 'option 2',
@@ -118,6 +125,48 @@ export function MultiSelect() {
       }}
       value={value}
       options={options}
+    />
+  );
+}
+
+export function SlimMultiSelect() {
+  const [value, setValue] = useState([3]);
+  const options: BoxSelectorOption<number>[] = [
+    {
+      description: 'description 1',
+      icon: Anchor,
+      iconType: 'badge',
+      id: '1',
+      value: 1,
+      label: 'option 1',
+    },
+    {
+      description: 'description 2',
+      icon: Briefcase,
+      iconType: 'badge',
+      id: '2',
+      value: 2,
+      label: 'option 2',
+    },
+    {
+      description: 'description 3',
+      icon: Docker,
+      id: '3',
+      value: 3,
+      label: 'option 2',
+    },
+  ];
+
+  return (
+    <BoxSelector
+      isMulti
+      radioName="name"
+      onChange={(value: number[]) => {
+        setValue(value);
+      }}
+      value={value}
+      options={options}
+      slim
     />
   );
 }
