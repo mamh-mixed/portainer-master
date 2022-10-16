@@ -1,7 +1,11 @@
+import { options } from './options';
+
 angular.module('portainer.docker').controller('BuildImageController', BuildImageController);
 
 /* @ngInject */
 function BuildImageController($scope, $async, $window, ModalService, BuildService, Notifications, HttpRequestHelper) {
+  $scope.options = options;
+
   $scope.state = {
     BuildType: 'editor',
     actionInProgress: false,
@@ -28,6 +32,12 @@ function BuildImageController($scope, $async, $window, ModalService, BuildServic
   $scope.$on('$destroy', function () {
     $scope.state.isEditorDirty = false;
   });
+
+  $scope.onChangeBuildType = function (type) {
+    $scope.$evalAsync(() => {
+      $scope.state.BuildType = type;
+    });
+  };
 
   $scope.checkName = function (index) {
     var item = $scope.formValues.ImageNames[index];
