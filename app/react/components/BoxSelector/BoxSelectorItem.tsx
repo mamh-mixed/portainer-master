@@ -5,10 +5,11 @@ import { Icon } from '@/react/components/Icon';
 
 import './BoxSelectorItem.css';
 
+import { BadgeIcon } from '@@/BadgeIcon';
+
 import { BoxSelectorOption, Value } from './types';
 import { LimitedToBeIndicator } from './LimitedToBeIndicator';
 import { BoxOption } from './BoxOption';
-import { BadgeIcon } from './BadgeIcon';
 import { LogoIcon } from './LogoIcon';
 
 type Props<T extends Value> = {

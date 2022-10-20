@@ -6,8 +6,6 @@ import Docker from '@/assets/ico/vendor/docker.svg?c';
 import { init as initFeatureService } from '@/portainer/feature-flags/feature-flags.service';
 import { Edition, FeatureId } from '@/portainer/feature-flags/enums';
 
-import { BadgeIcon } from '@@/BadgeIcon';
-
 import { BoxSelector } from './BoxSelector';
 import { BoxSelectorOption } from './types';
 
